@@ -1,0 +1,67 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+        <title></title>
+        <style type="text/css">
+            .pass{
+                width:200px;
+                height: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="password" name="" id="pass" value="123456" class="pass"/>
+        <input type="button" name="" id="btn" value="点击显示" />
+    </body>
+</html>
+<script>
+//  window.onload=function(){
+//      var btn=document.getElementById("btn");
+//      var pass=document.getElementById("pass")
+//      btn.onmousedown=function(){
+//          pass.type="number"
+//      };
+//      btn.onmouseup=btn.onmouseout=function(){
+//          pass.type="password"
+//      }
+//  }
+$(function(){
+	$("pass").onchange(function(){
+			
+		
+	})
+    	$("#btn").mousedown(function(){
+    		$("#pass").attr("type", "text");
+    	});
+    	$("#btn").mouseup(function(){
+    		$("#pass").attr("type", "password");
+    	});
+});
+</script>-->
+<!DOCTYPE html>
+<html encoding="utf-8">
+<head>
+	<style>
+	*{margin:0;padding:0}
+	input{font:14px Monospace;height:20px;width:160px;}
+	label{display:inline-block;width:100px;height:20px;}
+	#pass{position:absolute;left:100px;top:0;opacity:0;filter:alpha(opacity=0);z-index:2;}
+	form{position:relative;}
+	#hint_pass{position:absolute;left:100px;}
+	</style>
+</head>
+<body>
+	<form>
+		<label>Password:</label>
+		<input type="text" id="hint_pass" maxlength="20" tabindex="-1" />
+		<input type="text" id="pass" name="pass" maxlength="20" />
+	</form>	
+<script>
+	var pass=document.getElementById('pass');
+	var hint_pass=document.getElementById('hint_pass');
+	pass.onkeyup=pass.onchange=function(){hint_pass.value=pass.value.replace(/./g,'*');};
+</script>	
+</body>
+</html>
